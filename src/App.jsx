@@ -1,13 +1,11 @@
-import Header from "./Header/Header";
-
-function App() {
+import React from 'react'
+import Register from './Pages/Register'
+const App = () => {
   return (
-    <div className="min-h-screen bg-gray-100">
-
-      <Header />
-
+    <div >
+      <Register/>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
