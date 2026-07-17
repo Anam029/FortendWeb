@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Send } from "lucide-react";
+import { Send, Eye, EyeOff } from "lucide-react";
 import { Link } from "react-router-dom";
 import logo from "../assets/logo.jpg";
 import { authApi } from "../api/authApi";
@@ -9,6 +9,7 @@ export default function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const[showPassword, setShowPassword] = useState(false)
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -102,6 +103,14 @@ export default function Register() {
               autoComplete="new-password"
               className="w-full rounded-lg border border-neutral-700 bg-black px-4 py-3 text-sm text-white placeholder-neutral-500 outline-none transition-colors focus:border-orange-500"
             />
+
+            <button className="absolute right-3 top-1/2 -translate-y-1/2 text-neutral-400 hover:text-white"
+              type="button"
+              onClick={() => setShowPassword(!showPassword)}
+            >
+             {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+
+            </button>
           </div>
 
           
