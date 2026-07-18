@@ -16,7 +16,7 @@ export default function Header() {
 
         
         <h1 className="text-2xl font-bold text-white">
-          Hub
+          Web
         </h1>
 
         

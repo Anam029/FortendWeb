@@ -1,112 +1,95 @@
-import { Plus } from "lucide-react";
+import { Trash2, ArrowBigUp, MessageCircle} from "lucide-react";
 
-export default function RightSidebar() {
+const recentPosts = [
+  {
+    id: 1,
+    image: "https://www.redditstatic.com/avatars/defaults/v2/avatar_default_1.png",
+    community: "r/SoftwareEngineering",
+    time: "3mo ago",
+    title:
+      "How do you avoid workflow tasks with small complexity estimates booming in...",
+    upvotes: 8,
+    comments: 21,
+  },
+  {
+    id: 2,
+    image: "https://www.redditstatic.com/avatars/defaults/v2/avatar_default_1.png",
+    community: "r/startup",
+    time: "3mo ago",
+    title:
+      "Is anyone actually converting LinkedIn engagement into pipeline, or is it just a...",
+    upvotes: 7,
+    comments: 16,
+  },
+];
+
+export default function RecentPosts() {
   return (
-    <aside className="w-80 h-[calc(100vh-64px)] bg-[#181818] border-l border-zinc-800 p-5">
+    <div className="w-96 rounded-2xl overflow-hidden border border-zinc-800 bg-black">
 
-      {/* Trending Topics */}
-      <div className="bg-[#222222] rounded-xl p-5 border border-zinc-700">
+      {/* Header */}
+      <div className="flex items-center justify-between px-5 py-4 border-b border-zinc-800">
 
-        <h2 className="text-lg font-semibold text-white mb-5">
-          Trending Topics
+        <h2 className="uppercase text-xs tracking-wider text-zinc-400">
+          Recent Posts
         </h2>
 
-        <TrendingItem number="01" title="Technology" posts="20K Posts" />
-        <TrendingItem number="02" title="Gaming" posts="9,989 Posts" />
-        <TrendingItem number="03" title="Memes" posts="7,968 Posts" />
-        <TrendingItem number="04" title="Politics" posts="1,968 Posts" />
+        <button className="text-blue-500 hover:text-blue-400 font-medium">
+          Clear
+        </button>
 
       </div>
 
-      {/* Suggested Communities */}
+      {/* Posts */}
 
-      <div className="bg-[#222222] rounded-xl p-5 border border-zinc-700 mt-6">
+      {recentPosts.map((post) => (
+        <div
+          key={post.id}
+          className="px-5 py-5 border-b border-zinc-800 hover:bg-zinc-900 transition cursor-pointer"
+        >
+          <div className="flex gap-3">
 
-        <h2 className="text-lg font-semibold text-white mb-5">
-          Suggested Community
-        </h2>
+            <img
+              src={post.image}
+              alt=""
+              className="w-10 h-10 rounded-full object-cover"
+            />
 
-        <CommunityItem
-          name="AI Automation"
-          members="2.8M Members"
-        />
+            <div className="flex-1">
 
-        <CommunityItem
-          name="Startups"
-          members="1.2M Members"
-        />
+              <div className="flex items-center gap-2 text-sm">
 
-        <CommunityItem
-          name="Cyber Security"
-          members="890K Members"
-        />
+                <span className="font-semibold text-white">
+                  {post.community}
+                </span>
 
-        <CommunityItem
-          name="Linux Community"
-          members="650K Members"
-        />
+                <span className="text-zinc-500">
+                   {post.time}
+                </span>
 
-      </div>
+              </div>
 
-    </aside>
-  );
-}
+              <h3 className="mt-2 text-lg leading-7 text-zinc-200 font-medium">
+                {post.title}
+              </h3>
 
-function TrendingItem({ number, title, posts }) {
-  return (
-    <div className="flex justify-between items-center py-3 border-b border-zinc-700 last:border-none">
+              <div className="mt-3 flex items-center gap-4 text-sm text-zinc-500">
+  <div className="flex items-center gap-1">
+    <ArrowBigUp size={16} />
+    <span>{post.upvotes}</span>
+  </div>
 
-      <div>
+  <div className="flex items-center gap-1">
+    <MessageCircle size={16} />
+    <span>{post.comments}</span>
+  </div>
+</div>
 
-        <p className="text-sm text-zinc-400">
-          {number}
-        </p>
+            </div>
 
-        <h3 className="text-white font-medium">
-          {title}
-        </h3>
-
-        <p className="text-xs text-zinc-500">
-          {posts}
-        </p>
-
-      </div>
-
-      <span className="text-sm text-zinc-400">
-        8.5%
-      </span>
-
-    </div>
-  );
-}
-
-function CommunityItem({ name, members }) {
-  return (
-    <div className="flex justify-between items-center py-3">
-
-      <div className="flex items-center gap-3">
-
-        <div className="w-10 h-10 rounded-full bg-yellow-400 flex items-center justify-center text-black font-bold">
-          {name.charAt(0)}
+          </div>
         </div>
-
-        <div>
-
-          <h3 className="text-white text-sm font-medium">
-            {name}
-          </h3>
-
-          <p className="text-xs text-zinc-500">
-            {members}
-          </p>
-
-        </div>
-
-      </div>
-
-      <button className="px-4 py-1 rounded-full bg-white text-black text-sm font-medium hover:bg-zinc-200">
-        Join
-      </button>
+      ))}
 
     </div>
   );
