@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import logo from "../assets/logo.jpg";
 import { authApi } from "../api/authApi";
 
+
 export default function Register() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -94,23 +95,25 @@ export default function Register() {
             >
               Password
             </label>
-            <input
-              id="password"
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder="Enter your password"
-              autoComplete="new-password"
-              className="w-full rounded-lg border border-neutral-700 bg-black px-4 py-3 text-sm text-white placeholder-neutral-500 outline-none transition-colors focus:border-orange-500"
-            />
+           <div className="relative">
+    <input
+      id="password"
+      type={showPassword ? "text" : "password"}
+      value={password}
+      onChange={(e) => setPassword(e.target.value)}
+      placeholder="Enter your password"
+      autoComplete="new-password"
+      className="w-full rounded-lg border border-neutral-700 bg-black px-4 py-3 pr-12 text-sm text-white placeholder-neutral-500 outline-none transition-colors focus:border-orange-500"
+    />
 
-            <button className="absolute right-3 top-1/2 -translate-y-1/2 text-neutral-400 hover:text-white"
-              type="button"
-              onClick={() => setShowPassword(!showPassword)}
-            >
-             {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
-
-            </button>
+    <button
+      type="button"
+      onClick={() => setShowPassword(!showPassword)}
+      className="absolute right-3 top-1/2 -translate-y-1/2 text-neutral-400 hover:text-white"
+    >
+      {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+    </button>
+  </div>
           </div>
 
           

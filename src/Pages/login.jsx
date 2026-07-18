@@ -4,11 +4,12 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Send } from "lucide-react";
 import logo from "../assets/logo.jpg";
-import image from "../assets/image.svg"
+import {Eye ,EyeOff} from "lucide-react"
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const[showPassword, setShowPassword] = useState(false)
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -41,11 +42,8 @@ export default function Login() {
       >
         
         <div className="mb-8 flex flex-col items-center">
-          <img
-            src={image}
-            alt="image"
-            className="mb-4 h-20 w-20 rounded-full object-cover"
-          />
+          
+          
 
           <h1 className="text-3xl font-bold text-white">
             Welcome Back
@@ -75,19 +73,27 @@ export default function Login() {
           </div>
 
           
-          <div>
+          <div className='relative'>
             <label className="mb-2 block text-sm text-neutral-300">
               Password
             </label>
 
             <input
-              type="password"
+              type={showPassword ? "text" : "password"}
               placeholder="Enter your password"
               autoComplete="current-password"
               className="w-full rounded-lg border border-neutral-700 bg-black px-4 py-3 text-white outline-none transition focus:border-blue-500"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
+            <button 
+            type='button'
+            onClick={() => setShowPassword(!showPassword)}
+            className="absolute right-3 top-1/2 -translate-y-1/15 text-neutral-400 hover:text-white"
+            >
+                {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+
+            </button>
           </div>
 
           
