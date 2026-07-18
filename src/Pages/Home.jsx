@@ -4,10 +4,10 @@ import LeftSidebar from '../Components/Layout/Leftsidebar'
 import RightSidebar from '../Components/Layout/Rightsidebar'
 export default function  Home () {
   return (
-    <div>
+    <>
       
        
-    </div>
+    </>
   )
 }
 

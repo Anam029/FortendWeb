@@ -1,18 +1,22 @@
-import React from 'react'
-import Header from '../Components/Layout/Header'
-import LeftSidebar from '../Components/Layout/Leftsidebar'
-import { Outlet } from 'react-router-dom'
-import RightSidebar from '../Components/Layout/Rightsidebar'
+import { Outlet } from "react-router-dom";
+import Header from "../Components/Layout/Header";
+import LeftSidebar from "../Components/Layout/Leftsidebar";
+import RightSidebar from "../Components/Layout/Rightsidebar";
 
-const MainLayout = () => {
+export default function MainLayout() {
   return (
-    <div>
-      <Header/>
-      <Outlet/>
-      <LeftSidebar/>
-      <RightSidebar/>
-    </div>
-  )
-}
+    <div className="min-h-screen bg-[#181818] text-white">
+      <Header />
 
-export default MainLayout
+      <div className="flex">
+        <LeftSidebar />
+
+        <main className="flex-1 p-5">
+          <Outlet />
+        </main>
+
+        <RightSidebar />
+      </div>
+    </div>
+  );
+}
