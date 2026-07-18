@@ -4,20 +4,22 @@ import {
   Mail,
   ChevronDown,
 } from "lucide-react";
+import Avatar from "../../assets/Avatar.png";
+
 
 export default function Header() {
   return (
     <header className="h-16 border-b border-zinc-800 bg-[#181818] px-8 flex items-center justify-between">
 
-      {/* Left */}
+      
       <div className="flex items-center gap-10">
 
-        {/* Logo */}
-        <h1 className="text-2xl font-bold text-yellow-400">
-          Convo
+        
+        <h1 className="text-2xl font-bold text-white">
+          Hub
         </h1>
 
-        {/* Search */}
+        
         <div className="relative">
 
           <Search
@@ -28,50 +30,40 @@ export default function Header() {
           <input
             type="text"
             placeholder="Search..."
-            className="w-[450px] rounded-full bg-[#242424] border border-zinc-700 pl-11 pr-4 py-2 text-white outline-none focus:border-yellow-400"
+            className="w-[450px] rounded-full bg-[#242424] border border-zinc-700 pl-11 pr-4 py-2 text-white outline-none focus:border-white-400"
           />
 
         </div>
 
       </div>
 
-      {/* Right */}
+      
       <div className="flex items-center gap-5">
 
-        {/* AI Button */}
-        <button className="bg-yellow-400 text-black px-5 py-2 rounded-full font-medium hover:bg-yellow-300">
-          Convo AI
-        </button>
-
-        {/* Mail */}
+        
         <Mail
           size={20}
           className="text-zinc-300 cursor-pointer"
         />
 
-        {/* Notification */}
+        
         <Bell
           size={20}
           className="text-zinc-300 cursor-pointer"
         />
 
-        {/* User */}
+        
         <div className="flex items-center gap-3 cursor-pointer">
 
           <img
-            src="https://i.pravatar.cc/40"
-            alt=""
+            src={Avatar}
+            alt="Avatar"
             className="w-10 h-10 rounded-full"
           />
+         
+          
 
-          <span className="text-white">
-            Eugene
-          </span>
-
-          <ChevronDown
-            size={18}
-            className="text-zinc-400"
-          />
+          
 
         </div>
 
