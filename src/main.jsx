@@ -2,7 +2,7 @@ import { createRoot } from "react-dom/client";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import "../index.css";
 import Register from "./Pages/Register.jsx";
-import Login from "./Pages/Login.jsx";
+import Login from "./Pages/login.jsx";
 import Home from "./Pages/Home.jsx";
 import MainLayout from "./layout/MainLayout.jsx";
 const router = createBrowserRouter([
