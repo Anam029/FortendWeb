@@ -2,7 +2,7 @@ import {
   Search,
   Bell,
   Mail,
-  ChevronDown,
+  
 } from "lucide-react";
 import Avatar from "../../assets/Avatar.png";
 

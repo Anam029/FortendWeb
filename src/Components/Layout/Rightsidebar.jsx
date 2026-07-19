@@ -1,4 +1,4 @@
-import { Trash2, ArrowBigUp, MessageCircle} from "lucide-react";
+import {  ArrowBigUp, MessageCircle} from "lucide-react";
 
 const recentPosts = [
   {

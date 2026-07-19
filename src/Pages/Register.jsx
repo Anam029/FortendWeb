@@ -9,7 +9,7 @@ export default function Register() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const[confirmPassword, setConfirmPassword] = useState("")
   const[showPassword, setShowPassword] = useState(false)
 
   const handleSubmit = async (e) => {
@@ -127,7 +127,7 @@ export default function Register() {
             <input
               id="confirmPassword"
               type="password"
-              value={password}
+              value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
               placeholder="Confirm your password"
               autoComplete="new-password"
