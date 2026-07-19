@@ -3,11 +3,28 @@ import {
   Bell,
   Mail,
   
+  
 } from "lucide-react";
 import Avatar from "../../assets/Avatar.png";
+import { SearchUser } from "../../api/UserApi";
+import { useState } from "react";
+
 
 
 export default function Header() {
+
+  const[keyword, setKeyword] = useState("")
+  const[results, setResults] = useState([])
+
+  async function handleSearch(e) {
+    const value = e.target.value;
+    setKeyword(value);
+
+    const users = await SearchUser(value);
+    setResults(users);
+}
+
+
   return (
     <header className="h-16 border-b border-zinc-800 bg-[#181818] px-8 flex items-center justify-between">
 
@@ -27,11 +44,24 @@ export default function Header() {
             size={18}
           />
 
+
+ 
           <input
             type="text"
-            placeholder="Search..."
-            className="w-[450px] rounded-full bg-[#242424] border border-zinc-700 pl-11 pr-4 py-2 text-white outline-none focus:border-white-400"
+            value={keyword}
+            placeholder="Search user"
+            onChange={handleSearch}
+            className="w-112.5 rounded-full bg-[#242424] border border-zinc-700 pl-11 pr-4 py-2 text-white outline-none focus:border-white-400"
+
           />
+          {results.map(result =>{
+            return(
+            <li key={result._id}>
+            {result.username}
+           </li> 
+          )})}
+
+          
 
         </div>
 
